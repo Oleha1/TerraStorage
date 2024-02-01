@@ -1,0 +1,157 @@
+storage:
+
+settings:
+  message:
+    successfullyBuy: "Вы успешно купили ячейку!" #сообщения при удачной покупке ячейки
+    successfullyAddStorage: "Вы успешно добавили ячейку #%id%" #Сообщения об успешно добовлении ячейки
+    successfullyRemoveStorage: "Вы успешно удалили ячейку #%id%" #Сообщения об успешно добовлении ячейки
+    notEnoughItem: "У вас не хватает ресурсов!" #сообщения при не удачной покупве ячейки
+    noBuyStorage: "Вы не купили эту ячейку!" #кога кто-то открывает не купленную ячейку
+    lockStorage: "Вы успешно закрыли ячейку %id% игроку %player%!" #сообщения себе при открытии ячейки
+    unLockStorage: "Вы успешно открыли ячейку %id% игроку %player%!" #сообщения себе при закрытии ячейки
+    lockOtherStorage: "Вам закрыли ячейку %id%!" #сообщения игроку при открытии ячейки
+    unLockOtherStorage: "Вам открыли ячейку %id%!"#сообщения игроку при закрытии ячейки
+    error: "Ошибка!" #ну если это выпало то пиздец я хз нахуй
+    reloadConfig: "Вы обновили конфиг!" #при обновлении конфига
+  blockItem:
+    - SHULKER_BOX
+UI:
+  storage:
+    size: 45 #размер
+    title: "storage" #назвния гуи
+    items:
+    - HOPPER_MINECART: #названия предмета
+        slot: 13 #слот где будет предмет
+        displayName: Ячейка %id% #как будет называться прдмет
+        isBuyItem: MINECART #какой прдмет будет после покупки ячейки
+        id: 1 #id для определения ячейки
+        click: openBuyMenu #какой действия будет выполнять после нажатия
+        buyItem: DIAMOND #за какой прдмет купить
+        count: 5 #количество предметов для покупки
+        isBuySlotText: У вас уже есть это ячейка #текст если ечейка куплина
+        Lors: #текс под предметом
+          - asd %buyItem%
+          - asd %count%
+    - HOPPER_MINECART:
+        slot: 14
+        displayName: Ячейка %id%
+        isBuyItem: MINECART
+        id: 2
+        click: openBuyMenu
+        buyItem: DIAMOND
+        count: 5
+        isBuySlotText: У вас уже есть это ячейка
+        Lors:
+          - asd %buyItem%
+          - asd %count%
+    - HOPPER_MINECART:
+        slot: 15
+        displayName: Ячейка %id%
+        isBuyItem: MINECART
+        id: 3
+        click: openBuyMenu
+        buyItem: DIAMOND
+        count: 5
+        isBuySlotText: У вас уже есть это ячейка
+        Lors:
+          - asd %buyItem%
+          - asd %count%
+  confirmBuy:
+    size: 9
+    title: "confirmBuy"
+    items:
+    - LIME_STAINED_GLASS_PANE:
+        slot: 1
+        displayName: null
+        isBuyItem: LIME_STAINED_GLASS_PANE
+        id: 1
+        click: acceptBuy
+        buyItem: DIAMOND
+        count: 5
+        isBuySlotText: У вас уже есть это ячейка
+        Lors:
+    - LIME_STAINED_GLASS_PANE:
+        slot: 2
+        displayName: null
+        isBuyItem: MINECART
+        id: 2
+        click: acceptBuy
+        buyItem: DIAMOND
+        count: 5
+        isBuySlotText: У вас уже есть это ячейка
+        Lors:
+    - LIME_STAINED_GLASS_PANE:
+        slot: 3
+        displayName: null
+        isBuyItem: MINECART
+        id: 3
+        click: acceptBuy
+        buyItem: DIAMOND
+        count: 5
+        isBuySlotText: У вас уже есть это ячейка
+        Lors:
+    - LIME_STAINED_GLASS_PANE:
+        slot: 4
+        displayName: null
+        isBuyItem: MINECART
+        id: 4
+        click: acceptBuy
+        buyItem: DIAMOND
+        count: 5
+        isBuySlotText: У вас уже есть это ячейка
+        Lors:
+    - MINECART:
+        slot: 5
+        displayName: Ячейка %id%
+        isBuyItem: MINECART
+        id: 5
+        click: none
+        buyItem: DIAMOND
+        count: 5
+        isBuySlotText: У вас уже есть это ячейка
+        Lors:
+          - asdasdasd
+    - RED_STAINED_GLASS_PANE:
+        slot: 6
+        displayName: null
+        isBuyItem: MINECART
+        id: 6
+        click: denyBuy
+        buyItem: DIAMOND
+        count: 5
+        isBuySlotText: У вас уже есть это ячейка
+        Lors:
+    - RED_STAINED_GLASS_PANE:
+        slot: 7
+        displayName: null
+        isBuyItem: MINECART
+        id: 7
+        click: denyBuy
+        buyItem: DIAMOND
+        count: 5
+        isBuySlotText: У вас уже есть это ячейка
+        Lors:
+    - RED_STAINED_GLASS_PANE:
+        slot: 8
+        displayName: null
+        isBuyItem: MINECART
+        id: 8
+        click: denyBuy
+        buyItem: DIAMOND
+        count: 5
+        isBuySlotText: У вас уже есть это ячейка
+        Lors:
+    - RED_STAINED_GLASS_PANE:
+        slot: 9
+        displayName: null
+        isBuyItem: MINECART
+        id: 9
+        click: denyBuy
+        buyItem: DIAMOND
+        count: 5
+        isBuySlotText: У вас уже есть это ячейка
+        Lors:
+  storageSlot:
+    size: 27
+    title: Ячейка %id%
+players:
