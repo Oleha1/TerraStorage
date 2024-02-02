@@ -6,7 +6,7 @@ settings:
     successfullyAddStorage: "Вы успешно добавили ячейку #%id%" #Сообщения об успешно добовлении ячейки
     successfullyRemoveStorage: "Вы успешно удалили ячейку #%id%" #Сообщения об успешно добовлении ячейки
     notEnoughItem: "У вас не хватает ресурсов!" #сообщения при не удачной покупве ячейки
-    noBuyStorage: "Вы не купили эту ячейку!" #кога кто-то открывает не купленную ячейку
+    noBuyStorage: "Вы не купили ячейку %id%!" #кога кто-то открывает не купленную ячейку
     lockStorage: "Вы успешно закрыли ячейку %id% игроку %player%!" #сообщения себе при открытии ячейки
     unLockStorage: "Вы успешно открыли ячейку %id% игроку %player%!" #сообщения себе при закрытии ячейки
     lockOtherStorage: "Вам закрыли ячейку %id%!" #сообщения игроку при открытии ячейки
@@ -63,7 +63,7 @@ UI:
     - LIME_STAINED_GLASS_PANE:
         slot: 1
         displayName: null
-        isBuyItem: LIME_STAINED_GLASS_PANE
+        isBuyItem: MINECART
         id: 1
         click: acceptBuy
         buyItem: DIAMOND

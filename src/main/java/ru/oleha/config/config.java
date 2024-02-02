@@ -2,12 +2,9 @@ package ru.oleha.config;
 
 import org.bukkit.Location;
 import org.bukkit.World;
-import org.bukkit.configuration.ConfigurationSection;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
-import org.jetbrains.annotations.NotNull;
+import ru.oleha.utils.color;
 
-import java.io.File;
 import java.util.List;
 
 public class config {
@@ -73,10 +70,10 @@ public class config {
         return this.plugin.getConfig().getInt("UI.storageSlot.size");
     }
     public String getStorageName() {
-        return this.plugin.getConfig().getString("UI.storage.title");
+        return color.col(this.plugin.getConfig().getString("UI.storage.title"));
     }
     public String getStorageSlotName() {
-        return this.plugin.getConfig().getString("UI.storageSlot.title");
+        return color.col(this.plugin.getConfig().getString("UI.storageSlot.title"));
     }
     public List getStorageItemList() {
         return this.plugin.getConfig().getList("UI.storage.items");
@@ -85,42 +82,42 @@ public class config {
         return this.plugin.getConfig().getInt("UI.confirmBuy.size");
     }
     public String getConfirmBuyName() {
-        return this.plugin.getConfig().getString("UI.confirmBuy.title");
+        return color.col(this.plugin.getConfig().getString("UI.confirmBuy.title"));
     }
     public List getConfirmBuyItemList() {
         return this.plugin.getConfig().getList("UI.confirmBuy.items");
     }
     public String getSuccessfullyBuy() {
-        return this.plugin.getConfig().getString("settings.message.successfullyBuy");
+        return color.col(this.plugin.getConfig().getString("settings.message.successfullyBuy"));
     }
     public String getSuccessfullyAddStorage() {
-        return this.plugin.getConfig().getString("settings.message.successfullyAddStorage");
+        return color.col(this.plugin.getConfig().getString("settings.message.successfullyAddStorage"));
     }
     public String getSuccessfullyRemoveStorage() {
-        return this.plugin.getConfig().getString("settings.message.successfullyRemoveStorage");
+        return color.col(this.plugin.getConfig().getString("settings.message.successfullyRemoveStorage"));
     }
     public String getNotEnoughItem() {
-        return this.plugin.getConfig().getString("settings.message.notEnoughItem");
+        return color.col(this.plugin.getConfig().getString("settings.message.notEnoughItem"));
     }
     public String getNoBuyStorage() {
-        return this.plugin.getConfig().getString("settings.message.noBuyStorage");
+        return color.col(this.plugin.getConfig().getString("settings.message.noBuyStorage"));
     }
     public String getLockStorage() {
-        return this.plugin.getConfig().getString("settings.message.lockStorage");
+        return color.col(this.plugin.getConfig().getString("settings.message.lockStorage"));
     }
     public String getUnLockStorage() {
-        return this.plugin.getConfig().getString("settings.message.unLockStorage");
+        return color.col(this.plugin.getConfig().getString("settings.message.unLockStorage"));
     }
     public String getLockOtherStorage() {
-        return this.plugin.getConfig().getString("settings.message.lockOtherStorage");
+        return color.col(this.plugin.getConfig().getString("settings.message.lockOtherStorage"));
     }
     public String getUnLockOtherStorage() {
-        return this.plugin.getConfig().getString("settings.message.unLockOtherStorage");
+        return color.col(this.plugin.getConfig().getString("settings.message.unLockOtherStorage"));
     }
     public String getError() {
-        return this.plugin.getConfig().getString("settings.message.error");
+        return color.col(this.plugin.getConfig().getString("settings.message.error"));
     }
     public String getReloadConfig() {
-        return this.plugin.getConfig().getString("settings.message.reloadConfig");
+        return color.col(this.plugin.getConfig().getString("settings.message.reloadConfig"));
     }
 }

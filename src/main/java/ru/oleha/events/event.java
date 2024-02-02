@@ -48,12 +48,17 @@ public class event implements Listener {
                 event.setCancelled(true);
                 ItemStack itemStack = event.getCurrentItem();
                 NamespacedKey key = new NamespacedKey(plugin, "ID");
-                try {
+                NamespacedKey key3 = new NamespacedKey(plugin, "MATERIAL");
+                NamespacedKey key4 = new NamespacedKey(plugin, "COUNT");
+                if (itemStack.getItemMeta().getPersistentDataContainer().get(key,PersistentDataType.INTEGER) != null) {
                     int id = itemStack.getItemMeta().getPersistentDataContainer().get(key, PersistentDataType.INTEGER);
+                    String buyItem = itemStack.getItemMeta().getPersistentDataContainer().get(key3,PersistentDataType.STRING);
+                    int count = itemStack.getItemMeta().getPersistentDataContainer().get(key4,PersistentDataType.INTEGER);
+                    System.out.println(id);
                     if (!config.isBuySlot(player.getName(), id)) {
-                        utils.openConfirmBuy(player, config, plugin, id);
+                        utils.openConfirmBuy(player, config, plugin, id,buyItem,count);
                     }
-                } catch (NullPointerException ignored) {}
+                }
             }
         }
         if (player.hasMetadata(config.getConfirmBuyName())) {
@@ -85,6 +90,7 @@ public class event implements Listener {
                             }
                         } else if (click.equals("denyBuy")) {
                             event.getInventory().close();
+                            utils.openStorage(player,config,plugin);
                         }
                     }
                 } catch (NullPointerException ignored) {}
@@ -92,9 +98,9 @@ public class event implements Listener {
         }
         NamespacedKey key = new NamespacedKey(plugin,"storageID");
         PersistentDataContainer data = player.getPersistentDataContainer();
-        try {
-            int id = data.get(key,PersistentDataType.INTEGER);
-            if (player.hasMetadata(config.getStorageSlotName().replace("%id%",String.valueOf(id)))) {
+        if (data.get(key,PersistentDataType.INTEGER) != null) {
+            int id = data.get(key, PersistentDataType.INTEGER);
+            if (player.hasMetadata(config.getStorageSlotName().replace("%id%", String.valueOf(id)))) {
                 if (event.getAction() == InventoryAction.HOTBAR_SWAP || event.getAction() == InventoryAction.HOTBAR_MOVE_AND_READD) {
                     event.setCancelled(true);
                 }
@@ -111,7 +117,7 @@ public class event implements Listener {
                     }
                 }
             }
-        } catch (NullPointerException ignore) {}
+        }
     }
     @EventHandler
     public void onInventoryCloseEvent(InventoryCloseEvent event) {
@@ -119,34 +125,36 @@ public class event implements Listener {
         NamespacedKey key = new NamespacedKey(plugin,"storageID");
         NamespacedKey key2 = new NamespacedKey(plugin,"otherPlayer");
         PersistentDataContainer data = player.getPersistentDataContainer();
-        try {
-            int id = data.get(key,PersistentDataType.INTEGER);
-            String otherPlayer = data.get(key2,PersistentDataType.STRING);
-            if (player.hasMetadata(config.getStorageName())) {
-                player.removeMetadata(config.getStorageName(),plugin);
-            }
-            if (player.hasMetadata(config.getConfirmBuyName())) {
-                player.removeMetadata(config.getConfirmBuyName(),plugin);
-            }
-            if (player.hasMetadata(config.getStorageSlotName().replace("%id%",String.valueOf(id)))) {
-                configStorage.clearItems(player.getName(),id);
+        if (player.hasMetadata(config.getStorageName())) {
+            player.removeMetadata(config.getStorageName(),plugin);
+        }
+        if (player.hasMetadata(config.getConfirmBuyName())) {
+            player.removeMetadata(config.getConfirmBuyName(),plugin);
+        }
+        if (data.get(key,PersistentDataType.INTEGER) != null) {
+            int id = data.get(key, PersistentDataType.INTEGER);
+            if (player.hasMetadata(config.getStorageSlotName().replace("%id%", String.valueOf(id)))) {
+                configStorage.clearItems(player.getName(), id);
                 for (int i = 0; i < event.getInventory().getContents().length; i++) {
                     if (event.getInventory().getContents()[i] != null) {
-                        configStorage.addItem(player.getName(), event.getInventory().getContents()[i],i,id);
+                        configStorage.addItem(player.getName(), event.getInventory().getContents()[i], i, id);
                     }
                 }
-                player.removeMetadata(config.getStorageSlotName().replace("%id%",String.valueOf(id)),plugin);
+                player.removeMetadata(config.getStorageSlotName().replace("%id%", String.valueOf(id)), plugin);
             }
-            if (player.hasMetadata(config.getStorageSlotName().replace("%id%",String.valueOf(id)) + " игрока: " + otherPlayer)) {
-                configStorage.clearItems(otherPlayer,id);
-                for (int i = 0; i < event.getInventory().getContents().length; i++) {
-                    if (event.getInventory().getContents()[i] != null) {
-                        configStorage.addItem(otherPlayer, event.getInventory().getContents()[i],i,id);
+            if (data.get(key2,PersistentDataType.STRING) != null) {
+                String otherPlayer = data.get(key2, PersistentDataType.STRING);
+                if (player.hasMetadata(config.getStorageSlotName().replace("%id%", String.valueOf(id)) + " игрока: " + otherPlayer)) {
+                    configStorage.clearItems(otherPlayer, id);
+                    for (int i = 0; i < event.getInventory().getContents().length; i++) {
+                        if (event.getInventory().getContents()[i] != null) {
+                            configStorage.addItem(otherPlayer, event.getInventory().getContents()[i], i, id);
+                        }
                     }
+                    player.removeMetadata(config.getStorageSlotName().replace("%id%", String.valueOf(id)) + " игрока: " + otherPlayer, plugin);
                 }
-                player.removeMetadata(config.getStorageSlotName().replace("%id%",String.valueOf(id)) + " игрока: " + otherPlayer,plugin);
             }
-        } catch (NullPointerException ignore) {}
+        }
     }
     @EventHandler
     public void onInventoryOpenEvent(InventoryOpenEvent event) {
@@ -164,7 +172,7 @@ public class event implements Listener {
                     utils.openStorageSlot(player,config,plugin,id);
                 } else {
                     event.setCancelled(true);
-                    player.sendMessage(config.getNoBuyStorage());
+                    player.sendMessage(config.getNoBuyStorage().replace("%id%",String.valueOf(id)));
                 }
             }
         }

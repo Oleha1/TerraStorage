@@ -75,7 +75,7 @@ public class utils {
         player.openInventory(inventory);
         player.setMetadata(config.getStorageName(),new FixedMetadataValue(plugin,config.getStorageName()));
     }
-    public void openConfirmBuy(Player player, config config, Plugin plugin,int id) {
+    public void openConfirmBuy(Player player, config config, Plugin plugin,int id,String buyItem, int count) {
         List items = config.getConfirmBuyItemList();
         Inventory inventory = Bukkit.createInventory(player, config.getConfirmBuySize(), config.getConfirmBuyName());
         for (Object item : items) {
@@ -84,8 +84,6 @@ public class utils {
             String name = getDisplayName(item.toString());
             String isBuyItem = getIsBuyItem(item.toString());
             String click = getClick(item.toString());
-            String buyItem = getBuyItem(item.toString());
-            int count = getCount(item.toString());
             if (Material.getMaterial(material) != null) {
                 ItemStack itemStack;
                 if (config.isBuySlot(player.getName(),id)) {
