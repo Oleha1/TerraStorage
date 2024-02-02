@@ -1,2 +1,4 @@
 # Project exclude paths
 /target/
+TerraStorage.iml
+test.iml
