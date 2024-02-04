@@ -38,7 +38,7 @@ public class utils {
             ArrayList<String> oldLors = getLors(item.toString());
             ArrayList<String> newLors = new ArrayList<>();
             for (String lor : oldLors) {
-                newLors.add(lor.replace("%buyItem%", new ItemStack(Material.getMaterial(buyItem)).getI18NDisplayName()).replace("%count%",String.valueOf(count)));
+                newLors.add(color.col(lor.replace("%buyItem%", new ItemStack(Material.getMaterial(buyItem)).getI18NDisplayName()).replace("%count%",String.valueOf(count))));
             }
             if (Material.getMaterial(material) != null) {
                 ItemStack itemStack;
@@ -131,7 +131,7 @@ public class utils {
     private String getMaterial(String s) {
         StringBuilder stringBuilder = new StringBuilder(s.substring(1));
         stringBuilder.delete(stringBuilder.indexOf("="),stringBuilder.length());
-        return stringBuilder.toString();
+        return color.col(stringBuilder.toString());
     }
     private int getSlot(String s) {
         StringBuilder stringBuilder = new StringBuilder(s.substring(1));
@@ -144,7 +144,7 @@ public class utils {
         stringBuilder.delete(0,stringBuilder.indexOf("=") + 1);
         stringBuilder.delete(0,stringBuilder.indexOf(",") + 2);
         stringBuilder.delete(stringBuilder.indexOf(","),stringBuilder.length());
-        return stringBuilder.toString().replace("displayName=","");
+        return color.col(stringBuilder.toString().replace("displayName=",""));
     }
     private String getIsBuyItem(String s) {
         StringBuilder stringBuilder = new StringBuilder(s.substring(1));
@@ -152,7 +152,7 @@ public class utils {
         stringBuilder.delete(0,stringBuilder.indexOf(",") + 2);
         stringBuilder.delete(0,stringBuilder.indexOf(",") + 2);
         stringBuilder.delete(stringBuilder.indexOf(","),stringBuilder.length());
-        return stringBuilder.toString().replace("isBuyItem=","");
+        return color.col(stringBuilder.toString().replace("isBuyItem=",""));
     }
     private int getId(String s) {
         StringBuilder stringBuilder = new StringBuilder(s.substring(1));
@@ -170,7 +170,7 @@ public class utils {
         stringBuilder.delete(0,stringBuilder.indexOf(",") + 2);
         stringBuilder.delete(0,stringBuilder.indexOf(",") + 2);
         stringBuilder.delete(stringBuilder.indexOf(","),stringBuilder.length());
-        return stringBuilder.toString().replace("click=","");
+        return color.col(stringBuilder.toString().replace("click=",""));
     }
     private String getBuyItem(String s) {
         StringBuilder stringBuilder = new StringBuilder(s.substring(1));
@@ -180,7 +180,7 @@ public class utils {
         stringBuilder.delete(0,stringBuilder.indexOf(",") + 2);
         stringBuilder.delete(0,stringBuilder.indexOf(",") + 2);
         stringBuilder.delete(stringBuilder.indexOf(","),stringBuilder.length());
-        return stringBuilder.toString().replace("buyItem=","");
+        return color.col(stringBuilder.toString().replace("buyItem=",""));
     }
     private int getCount(String s) {
         StringBuilder stringBuilder = new StringBuilder(s.substring(1));
@@ -203,7 +203,7 @@ public class utils {
         stringBuilder.delete(0,stringBuilder.indexOf(",") + 2);
         stringBuilder.delete(0,stringBuilder.indexOf(",") + 2);
         stringBuilder.delete(stringBuilder.indexOf(","),stringBuilder.length());
-        return stringBuilder.toString().replace("isBuySlotText=","");
+        return color.col(stringBuilder.toString().replace("isBuySlotText=",""));
     }
     private ArrayList<String> getLors(String s) {
         StringBuilder stringBuilder = new StringBuilder(s.substring(1));
