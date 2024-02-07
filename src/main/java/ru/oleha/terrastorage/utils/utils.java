@@ -1,4 +1,4 @@
-package ru.oleha.utils;
+package ru.oleha.terrastorage.utils;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -10,8 +10,8 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.Plugin;
-import ru.oleha.config.config;
-import ru.oleha.config.configStorage;
+import ru.oleha.terrastorage.config.config;
+import ru.oleha.terrastorage.config.configStorage;
 
 import java.util.ArrayList;
 import java.util.Arrays;

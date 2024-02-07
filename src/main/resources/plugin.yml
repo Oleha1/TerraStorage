@@ -1,6 +1,6 @@
 name: TerraStorage
 version: '${project.version}'
-main: ru.oleha.main
+main: ru.oleha.terrastorage.main
 api-version: '1.16'
 commands:
   storage:

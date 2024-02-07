@@ -1,10 +1,9 @@
-package ru.oleha;
+package ru.oleha.terrastorage;
 
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
-import ru.oleha.command.commandStorage;
-import ru.oleha.config.configStorage;
-import ru.oleha.events.event;
+import ru.oleha.terrastorage.command.commandStorage;
+import ru.oleha.terrastorage.config.configStorage;
+import ru.oleha.terrastorage.events.event;
 
 public final class main extends JavaPlugin {
     @Override

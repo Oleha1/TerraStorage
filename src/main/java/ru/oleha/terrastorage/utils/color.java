@@ -1,4 +1,4 @@
-package ru.oleha.utils;/*
+package ru.oleha.terrastorage.utils;/*
 /   Связь с разработчиком в любой соц. сети - @nnikitochka
 /   Официальное сообщество https://discord.gg/7wRDxvbbjd
 */

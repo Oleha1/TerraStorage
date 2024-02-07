@@ -1,4 +1,4 @@
-package ru.oleha.config;
+package ru.oleha.terrastorage.config;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;

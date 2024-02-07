@@ -1,9 +1,9 @@
-package ru.oleha.config;
+package ru.oleha.terrastorage.config;
 
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.plugin.Plugin;
-import ru.oleha.utils.color;
+import ru.oleha.terrastorage.utils.color;
 
 import java.util.List;
 

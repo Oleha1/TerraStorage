@@ -1,4 +1,4 @@
-package ru.oleha.events;
+package ru.oleha.terrastorage.events;
 
 import org.bukkit.*;
 import org.bukkit.entity.Player;
@@ -10,11 +10,10 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.Plugin;
-import ru.oleha.config.config;
-import ru.oleha.config.configStorage;
-import ru.oleha.utils.utils;
+import ru.oleha.terrastorage.config.config;
+import ru.oleha.terrastorage.config.configStorage;
+import ru.oleha.terrastorage.utils.utils;
 
-import java.util.Arrays;
 import java.util.Objects;
 
 

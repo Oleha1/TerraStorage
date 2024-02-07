@@ -1,6 +1,5 @@
-package ru.oleha.command;
+package ru.oleha.terrastorage.command;
 
-import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.block.Block;
 import org.bukkit.command.Command;
@@ -12,8 +11,8 @@ import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import ru.oleha.config.config;
-import ru.oleha.utils.utils;
+import ru.oleha.terrastorage.config.config;
+import ru.oleha.terrastorage.utils.utils;
 
 import java.util.ArrayList;
 import java.util.List;
